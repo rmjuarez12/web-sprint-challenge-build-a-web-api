@@ -28,6 +28,23 @@ router.get("/:id", getMiddleware.validateProjectID(Projects), (req, res) => {
   res.status(200).json(project);
 });
 
+// GET - Get all actions from a project
+router.get(
+  "/:id/actions",
+  getMiddleware.validateProjectID(Projects),
+  (req, res) => {
+    const { id } = req.params;
+
+    Projects.getProjectActions(id)
+      .then((actions) => {
+        res.status(200).json(actions);
+      })
+      .catch((err) => {
+        res.status(500).json(err);
+      });
+  }
+);
+
 // POST - Create a new project
 router.post("/", getMiddleware.validateProjectBody, (req, res) => {
   const newProject = req.body;

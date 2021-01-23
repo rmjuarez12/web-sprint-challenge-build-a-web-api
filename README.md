@@ -90,7 +90,7 @@ A _"test"_ script already exists you can use to run tests against your code.
   - `[PUT] /api/projects/:id` sends the updated project as the body of the _response_.
   - `[DELETE] /api/projects/:id` sends no _response_ body.
 
-- [ ] Inside `api/projects/projects-router.js` add an endpoint for retrieving the list of actions for a project:
+- [x] Inside `api/projects/projects-router.js` add an endpoint for retrieving the list of actions for a project:
 
   - `[GET] /api/projects/:id/actions` sends an array of actions (or an empty array) as the body of the response.
 
@@ -130,10 +130,17 @@ There are two possible ways to submit this project to Canvas. Lambda Staff will 
 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
-1. The core features of Node.js and Express and why they are useful.
-1. Understand and explain the use of Middleware.
-   **A: Middleware are functions that can help validate the data from the request, in order to ensure that the responses we get in the endpoints are valid. This helps so that we don't get any errors or mishaps in the database structure. It also helps create a DRY environment, so that we do not need to repeatedly validate the request data within each endpoint.**
+- The core features of Node.js and Express and why they are useful.
 
-1. The basic principles of the REST architectural style.
-1. Understand and explain the use of Express Routers.
-1. Describe tooling used to manually test the correctness of an API.
+**A: Node.js is basically an environment in which we can use JavaScript outside a browser. It is very useful so that we can create applications that do not require direct interaction from a browser. Express is a Node.js package that allows us to create a fully functional backend application that allows us to manage data through an API. It is very useful to create several endpoints, that we specify, in which a browser can use to gather specific data.**
+
+- Understand and explain the use of Middleware.
+
+**A: Middleware are functions that can help validate the data from the request, in order to ensure that the responses we get in the endpoints are valid. This helps so that we don't get any errors or mishaps in the database structure. It also helps create a DRY environment, so that we do not need to repeatedly validate the request data within each endpoint.**
+
+- The basic principles of the REST architectural style.
+- Understand and explain the use of Express Routers.
+
+**A: Routers helps us to separate several different enpoint groups in different files. For example, we may have enpoints that is to handle `projects` data, while we have other endpoints to get `tasks` data. This will help us identify the endpoints for each much easier, since each of them will have its own separate file with its own endpoints.**
+
+- Describe tooling used to manually test the correctness of an API.
