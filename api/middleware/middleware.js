@@ -14,7 +14,7 @@ const validateActionID = (actionsModel) => (req, res, next) => {
   });
 };
 
-//* Function to ensure the req.body has valid data
+//* Function to ensure the req.body for actions has valid data
 const validateActionBody = (req, res, next) => {
   const newAction = req.body;
 
@@ -23,9 +23,38 @@ const validateActionBody = (req, res, next) => {
   } else if (!newAction.description || newAction.description === "") {
     res
       .status(400)
-      .json({ message: "Please provide a description for the action" });
+      .json({ message: "Please enter a description for the action" });
   } else if (!newAction.notes || newAction.notes === "") {
-    res.status(400).json({ message: "Please provide notes for the action" });
+    res.status(400).json({ message: "Please enter notes for the action" });
+  } else {
+    next();
+  }
+};
+
+//* Function to ensure an action with the specified ID is found
+const validateProjectID = (projectModel) => (req, res, next) => {
+  const { id } = req.params;
+
+  projectModel.get(id).then((project) => {
+    if (project) {
+      req.project = project;
+      next();
+    } else {
+      res.status(500).json({ message: "Project Not Found!" });
+    }
+  });
+};
+
+//* Function to ensure the req.body for projects has valid data
+const validateProjectBody = (req, res, next) => {
+  const newProject = req.body;
+
+  if (!newProject.name || newProject.name === "") {
+    res.status(400).json({ message: "Please enter a name for the project" });
+  } else if (!newProject.description || newProject.description === "") {
+    res
+      .status(400)
+      .json({ message: "Please enter a description for the project" });
   } else {
     next();
   }
@@ -35,4 +64,6 @@ const validateActionBody = (req, res, next) => {
 module.exports = {
   validateActionID,
   validateActionBody,
+  validateProjectID,
+  validateProjectBody,
 };

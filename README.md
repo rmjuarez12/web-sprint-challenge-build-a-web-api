@@ -82,7 +82,7 @@ A _"test"_ script already exists you can use to run tests against your code.
   - `[PUT] /api/actions/:id` sends the updated action as the body of the _response_.
   - `[DELETE] /api/actions/:id` sends no _response_ body.
 
-- [ ] Inside `api/projects/projects-router.js` build endpoints for performing CRUD operations on _projects_:
+- [x] Inside `api/projects/projects-router.js` build endpoints for performing CRUD operations on _projects_:
 
   - `[GET] /api/projects` sends an array of projects (or an empty array) as the body of the response.
   - `[GET] /api/projects/:id` sends a project with the given `id` as the body of the _response_.
@@ -132,6 +132,8 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. The core features of Node.js and Express and why they are useful.
 1. Understand and explain the use of Middleware.
+   **A: Middleware are functions that can help validate the data from the request, in order to ensure that the responses we get in the endpoints are valid. This helps so that we don't get any errors or mishaps in the database structure. It also helps create a DRY environment, so that we do not need to repeatedly validate the request data within each endpoint.**
+
 1. The basic principles of the REST architectural style.
 1. Understand and explain the use of Express Routers.
 1. Describe tooling used to manually test the correctness of an API.
