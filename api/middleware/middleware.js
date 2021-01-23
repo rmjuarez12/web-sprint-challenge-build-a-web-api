@@ -9,7 +9,7 @@ const validateActionID = (actionsModel) => (req, res, next) => {
       req.action = action;
       next();
     } else {
-      res.status(500).json({ message: "Action Not Found!" });
+      res.status(404).json({ message: "Action Not Found!" });
     }
   });
 };
@@ -40,7 +40,7 @@ const validateProjectID = (projectModel) => (req, res, next) => {
       req.project = project;
       next();
     } else {
-      res.status(500).json({ message: "Project Not Found!" });
+      res.status(404).json({ message: "Project Not Found!" });
     }
   });
 };
