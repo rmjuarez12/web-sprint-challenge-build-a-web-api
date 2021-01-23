@@ -12,3 +12,14 @@ I need this code, but don't know where, perhaps should make some middleware, don
 
 Go code!
 */
+//* Import the server
+const server = require("./api/server");
+
+//* Specify port to use and host
+const PORT = 5000;
+const host = "http://localhost";
+
+//* Start server
+server.listen(PORT, () => {
+  console.log(`\n--- Server Running on ${host}:${PORT} ---\n`);
+});

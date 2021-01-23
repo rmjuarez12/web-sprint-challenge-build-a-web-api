@@ -1,7 +1,14 @@
-const express = require('express');
+//* Import express and setup server
+const express = require("express");
 const server = express();
 
-// Complete your server here!
-// Do NOT `server.listen()` inside this file!
+//* Ensure we use JSON parser
+server.use(express.json());
+
+//* Import Routers
+const actionsRouter = require("./actions/actions-router");
+
+//* Setup The Routers
+server.use("/api/actions", actionsRouter);
 
 module.exports = server;
